@@ -44,5 +44,6 @@
 
 ## Example
 
-# <img width="1920" height="1080" alt="Converted (1)" src="https://github.com/user-attachments/assets/c82cce2f-bb09-429c-ac04-54e9d437a172" />
+# <img width="546" height="286" alt="converted" src="https://github.com/user-attachments/assets/8a77b89c-2533-4432-affe-e437a1fc36de" />
+
 
