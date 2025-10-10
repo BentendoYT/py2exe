@@ -13,7 +13,6 @@ chcp 65001 >nul
 ::		     github.com/BentendoYT
 :: ===========================================================
 
-:: Prüfen, ob Datei per Drag & Drop übergeben wurde
 if not "%~1"=="" (
     set "file=%~1"
     goto QuickConvert
@@ -91,11 +90,18 @@ if /i "%removeConsole%"=="y" (
     set consoleOption=
 )
 
+if /i "%removeConsole%"=="y" (
+    set removeConsoleOutput=no
+) else (
+    set removeConsoleOutput=yes
+)
+
+
 echo.
 echo ═════════ Info ══════════
 echo  File:     %file%
 echo  Icon:     %icon%
-echo  Console:  %removeConsole%
+echo  Console:  %removeConsoleOutput%
 echo ═════════════════════════
 echo.
 
