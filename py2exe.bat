@@ -38,33 +38,40 @@ echo.
 
 set /p StartChoice=">> "
 
-if "%StartChoice%"=="1" (
+if "%StartChoice%"=="1" goto CheckPyInstaller
+if "%StartChoice%"=="2" exit
+
+:CheckPyInstaller
+python -m PyInstaller --version >nul 2>&1
+if errorlevel 1 (
+    echo.
+    echo [!] PyInstaller is not installed!
+    goto AskInstall
+) else (
+    goto Converter
+)
+
+:AskInstall
+set /p install="Do you want to install it now? (y/n) >> "
+if /i "%install%"=="y" (
+    cls
+    echo Installing PyInstaller...
+    python -m pip install --upgrade pip
+    python -m pip install pyinstaller
     python -m PyInstaller --version >nul 2>&1
     if errorlevel 1 (
-        echo.
-        echo [!] PyInstaller is not installed!
-        set /p install="Do you want to install it now? (y/n) >> "
-        if /i "%install%"=="y" (
-            echo.
-            echo Installing PyInstaller...
-            python -m pip install pyinstaller
-            if errorlevel 1 (
-                echo [!] Installation failed. Please install manually.
-                pause
-                goto start
-            )
-            echo [!] PyInstaller installed successfully.
-            pause
-        ) else (
-            echo Exiting. PyInstaller is required to continue.
-            pause
-            exit
-        )
+        echo [!] Installation failed. Please install manually.
+        pause
+        goto start
     )
+    echo [!] PyInstaller installed successfully.
+    pause
+    goto start
+) else (
+    echo Exiting. PyInstaller is required to continue.
+    pause
+    exit
 )
-goto Converter
-
-if "%StartChoice%"=="2" exit
 
 echo.
 echo [!] Invalid input. [ "%StartChoice%" ] Please enter '1' or '2'.
