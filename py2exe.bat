@@ -61,8 +61,9 @@ if "%StartChoice%"=="1" (
             exit
         )
     )
-    goto Converter
 )
+goto Converter
+
 if "%StartChoice%"=="2" exit
 
 echo.
