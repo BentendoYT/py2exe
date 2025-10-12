@@ -5,7 +5,7 @@ chcp 65001 >nul
 :: ===========================================================
 ::  py2exe - Simple Python to EXE Converter
 ::  Author : Bentendo
-::  Version: 2.3
+::  Version: 3.0
 ::  License: MIT
 ::  Description:
 ::      Batch interface for PyInstaller with enhanced options.
@@ -147,3 +147,4 @@ if /i "%install%"=="y" (
     pause
     exit
 )
+
